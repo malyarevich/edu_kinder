@@ -3,15 +3,54 @@
   <head>
     <title>Home Personal Page</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="css/homePersPage.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
     <style>
-   
+    body{
+      background-color: transparent;
+      font:inherit;
+    } 
+    .container-fluid{
+      margin-top: 20px;
+    }
+    .imgButton{
+      text-align:center;
+      margin-top: 5px;
+    }
+    .headline {
+      font-family: Calibri, "Helvetica", san-serif;
+      line-height: 1.5em;
+      color: black;
+      font-size: 35px;
+    }
+    .headline:after {
+      content:' ';
+      display:block;
+      border:2px solid #6d6868;
+      border-radius:4px;
+      -webkit-border-radius:4px;
+      -moz-border-radius:4px;
+      box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+      -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+      -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    }
+    #mainInfoHeader{
+      font-size: 25px;
+      margin-top: 10px;
+    }
+    .boldText{
+      font-weight: bold;
+    }
+    .infoText{
+      font-size: 18px;
+    }
     </style>
   </head>
   <body>
+
+
     <div class="container-fluid">
       <div class="well well-lg">
         <div class="row">
@@ -21,7 +60,7 @@
               <td>
                 <div class="imgContainer">
                   <div>
-                    <img src="images/kidIcon.jpg" class="img-thumbnail" alt="Profile Img" width="350" height="400">
+                    <img src="http://troll.me/images/successful-kid/successful-kid.jpg" class="img-thumbnail" alt="Profile Img" width="350" height="400">
                   </div>
                   <div class="imgButton">
                    <button type="button"  class="btn btn-link "><span class="glyphicon glyphicon-edit"></span>Edit info</button>
