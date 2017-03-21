@@ -1,26 +1,22 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/)
+# [Start Bootstrap](http://startbootstrap.com/) - [Kinder Surprise taiga.io](https://tree.taiga.io/project/malyarevich-kindersurprise/taskboard/2nd-sprint-48)
 
-[SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/) is an open source, admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
+[Kinder Surprise](http://startbootstrap.com/template-overviews/sb-admin-2/) is an open educational project.
 
-## Getting Started
 
-To use this template, choose one of the following options to get started:
-* Download the latest release on Start Bootstrap
-* Fork this repository on GitHub
 
 ## Bugs and Issues
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/sb-admin-2/).
+Have a bug or an issue with this project? [Open a new issue](https://github.com/malyarevich/malyarevich.kinder/issues) here on GitHub or leave a comment.
 
 ## Creator
 
-Start Bootstrap was created by and is maintained by **David Miller**, Managing Parter at [Iron Summit Media Strategies](http://www.ironsummitmedia.com/).
+Kinder Surprise was created by and is maintained by **Paul Malyarevich**, **Maks Fedorenchik**, **Aleksey Ohmat**, **Nadia Trofimova**, **Valeria Petrikovskaya** and other.
 
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+* https://tree.taiga.io/project/malyarevich-kindersurprise/
+* https://github.com/malyarevich/malyarevich.kinder/
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+
 
 ## Copyright and License
 
-Copyright 2014 Iron Summit Media Strategies, LLC. Code released under the [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
+Copyright 2017 Kinder Surprise. Code released under the Crutches. 
