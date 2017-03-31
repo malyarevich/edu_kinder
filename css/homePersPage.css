@@ -1,7 +1,7 @@
  body{
       background-color: transparent;
       font:inherit;
-    } 
+    }
     .container-fluid{
       margin-top: 20px;
     }
@@ -32,7 +32,4 @@
     }
     .boldText{
       font-weight: bold;
-    }
-    .infoText{
-      font-size: 18px;
     }
