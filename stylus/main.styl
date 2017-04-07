@@ -9,10 +9,6 @@ body
 
 /*#Begin: Kinder surprise style#*/
 
-.description 
-	 border-right: 2px solid
-	 padding-right: 15px
-
 .panel-body.panel-custom 
 	background:  #f5f5f5
 
@@ -119,22 +115,29 @@ body
 
 // for Home and Section list pages-
 
+
 // Wrappers
+html, body
+	height 100vh
 
 #wrapper
-    width 100%
+	width 100%
+	height auto
 
 #page-wrapper
-    padding 0 15px
-    min-height 568px
-    background-color white
+	padding 0 
+	height auto
+	background-color white
+	.well-lg
+		height auto
+
 
 @media(min-width:768px)
     #page-wrapper
-        position inherit
-        margin 0 0 0 200px
-        padding 0 30px
-        border-left 1px solid darken(gray-lightest, 6.5%)
+		position inherit
+		margin 0 0 0 200px
+		padding 0
+		border-left 1px solid darken(gray-lightest, 6.5%)
 
 // Navigation
 
