@@ -3,17 +3,18 @@
 @import "fonts.styl"
 
 // Global Styles
-
+html
+    box-sizing border-box
 body
     background-color gray-lightest
 
 /*#Begin: Kinder surprise style#*/
 
-.description 
+.description
 	 border-right: 2px solid
 	 padding-right: 15px
 
-.panel-body.panel-custom 
+.panel-body.panel-custom
 	background:  #f5f5f5
 
 .groupbody
@@ -37,10 +38,18 @@ body
 .toText
 	margin-top 10px
 
+@media(min-width:768px)
+  .links
+    float right
+
+@media(max-width:768px)
+  .links
+    float left
+
 
 /*#End: Kinder surprise style#*/
 
-	
+
 // Kinder-surprise
 
 .logo-header
@@ -112,9 +121,9 @@ body
 .contentTitle
     @extend .caption
     margin-top 10px
-.circle-pic 
+.circle-pic
     width: 150px
-    height: 150px   
+    height: 150px
 
 
 // for Home and Section list pages-
@@ -125,20 +134,22 @@ body
     width 100%
 
 #page-wrapper
-    padding 0 15px
-    min-height 568px
-    background-color white
+    padding 0px
 
 @media(min-width:768px)
     #page-wrapper
         position inherit
         margin 0 0 0 200px
-        padding 0 30px
+        padding 0 0px
         border-left 1px solid darken(gray-lightest, 6.5%)
 
 // Navigation
 
 // --Topbar+++
+.navbar-static-top
+    margin 0
+    box-sizing border-box
+    border-bottom 0
 
 .navbar-top-links
     margin-right 0
