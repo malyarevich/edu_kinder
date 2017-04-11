@@ -58,8 +58,7 @@
   font-style: normal;
 }
 .OpenSans-Semibold,
-.caption,
-.contentTitle {
+.caption {
   font-family: 'Open Sans Semibold';
   font-weight: 600;
   font-style: normal;
@@ -182,8 +181,7 @@ body {
 }
 .page-header,
 .caption,
-.title,
-.contentTitle {
+.title {
   font-size: 20px;
 }
 .page-accent,
@@ -202,12 +200,21 @@ body {
 .edit-info {
   font-size: 14px;
 }
-.contentTitle {
-  margin-top: 10px;
-}
 .circle-pic {
   width: 150px;
   height: 150px;
+}
+#myModal.modal-content {
+  margin-top: 50px;
+}
+.thumbnail {
+  height: auto;
+  display: inline-block;
+  margin-bottom: 0;
+}
+.thumbnail img {
+  display: block;
+  float: left;
 }
 #wrapper {
   width: 100%;
