@@ -44,6 +44,10 @@ pwl = function pageWrapperLoader() {
 function ready() {
     console.log("Ready!");
 
+    if( document.location.hash !== undefined ) {
+    	curPage = document.location.hash.substr(1);
+    }
+
     document.title = document.title.replace("{%Site}", curPage.capitalizeFirstLetter() );
     jQuery("#site-title").html(siteName);
     pwl();
