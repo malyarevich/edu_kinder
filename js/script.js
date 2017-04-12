@@ -36,7 +36,7 @@ var siteName = "Kinder Surprise";
 
 pwl = function pageWrapperLoader() {
   jQuery('#page-wrapper').load('/pages/'+ curPage +'.html','#page-wrapper');
-  document.title = document.title.replace("{%Page}", curPage.capitalizeFirstLetter() );
+  document.title = siteName + " - " + curPage.capitalizeFirstLetter();
   jQuery("#page-title").html(curPage.capitalizeFirstLetter());
   return false;
 }
