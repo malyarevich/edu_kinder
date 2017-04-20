@@ -89,8 +89,11 @@ body
     @extend .page-accent
 
 .title
-    @extend .OpenSans-ExtraBoldItalic
+    @extend .OpenSans-Bold
     @extend .page-header
+//Crunch
+#wrapper > nav > div.navbar-header > a
+    color title-color
 
 .current-page
     @extend .OpenSans-BoldItalic
@@ -115,6 +118,14 @@ body
 .links
     @extend .OpenSans-SemiboldItalic
     @extend .page-accent
+#side-menu
+    li
+        a
+            @extend .page-accent
+            @extend .OpenSans-Semibold
+            color #285473
+            &:hover
+                background #e1e5eb
 
 
 .circle-pic
@@ -148,6 +159,91 @@ body
         border-left 1px solid darken(gray-lightest, 6.5%)
 
 // Navigation
+#wrapper > nav > ul > li.dropdown.log-out.open > ul > li:nth-child(1) > a
+.navbar
+    background #507299
+#wrapper
+    nav
+        div.navbar-header
+            button.navbar-toggle
+                border none
+                border-radius(0)
+                margin 0
+                height 50px
+                width 60px
+                padding 10px 15px
+                span
+                    background-color hamburger-span
+                    width 30px
+                    height 3px
+                    border-radius 2px
+                &:hover, &:active
+                    background-color #43648c
+                &:focus
+                    background-color #305075
+        ul.navbar-right
+            li.dropdown.open
+                ul.dropdown-menu
+                    padding 0
+                    li
+                        height auto
+                        background #fff
+                        a
+                            height 35px
+                            margin 5px 0
+                            padding 7px 20px
+                            background #fff
+                            color #2a5885
+                            &:hover, &:active, &:focus
+                                background #e4eaf0
+                            i.fa
+                                color #2a5885
+                        a.dropdown-toggle
+                            color #ccc
+                    li.divider
+                        background #dbe4ec
+                        margin 0 10px
+                        height 1px
+            li.dropdown
+                a.dropdown-toggle
+                    color #fff
+                    background #507299
+                    &:hover
+                        background #43648c
+                    &:active, &:focus
+                        background #305075
+
+    /*ul.dropdown-menu
+        li.dropdown, li
+            a
+                color #eee
+                i.fa
+                    color #ccc
+            a.dropdown-toggle
+                color #ccc
+                &:hover, &:active, &:focus
+                    background #4e7097
+        li.dropdown.open
+            ul
+                background #eee
+                li
+                    background #eee
+                li.divider
+                    color #333
+                    background #333
+                a
+                    background #eee
+                    color #666
+                    &:hover, &:active, &:focus
+                        color #333
+                    i.fa
+                        color #666
+                        &:hover, &:active, &:focus
+                            color #333
+
+*/
+
+
 
 // --Topbar+++
 .navbar-static-top

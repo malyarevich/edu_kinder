@@ -36,7 +36,7 @@ var siteName = "Kinder Surprise";
 
 pwl = function pageWrapperLoader() {
   jQuery('#page-wrapper').load('/pages/'+ curPage +'.html','#page-wrapper');
-  document.title = document.title.replace("{%Page}", curPage.capitalizeFirstLetter() );
+  document.title = siteName + " - " + curPage.capitalizeFirstLetter();
   jQuery("#page-title").html(curPage.capitalizeFirstLetter());
   return false;
 }
@@ -44,10 +44,13 @@ pwl = function pageWrapperLoader() {
 function ready() {
     console.log("Ready!");
 
-    if( document.location.hash !== undefined ) {
+    if( !(document.location.hash === undefined || document.location.hash === "")) {
     	curPage = document.location.hash.substr(1);
+    } else {
+        document.location.hash = curPage = "home";
     }
 
+    console.log(curPage);
     document.title = document.title.replace("{%Site}", curPage.capitalizeFirstLetter() );
     jQuery("#site-title").html(siteName);
     pwl();
@@ -55,7 +58,9 @@ function ready() {
 
 document.addEventListener("DOMContentLoaded", ready);
 
-jQuery("#side-menu>li>a").click(function() {
+jQuery("#side-menu>li>a").click(function(evt) {
+    jQuery("#side-menu>li>a").removeClass("active");
+    jQuery(this).addClass("active");
     console.log(this.hash);
     curPage = document.location.hash = (this.hash).substr(1);
     pwl();
