@@ -34,12 +34,16 @@ String.prototype.capitalizeFirstLetter = function() {
 var curPage = "home";
 var siteName = "Kinder Surprise";
 
-pwl = function pageWrapperLoader() {
-  jQuery('#page-wrapper').load('/pages/'+ curPage +'.html','#page-wrapper');
-  document.title = siteName + " - " + curPage.capitalizeFirstLetter();
-  jQuery("#page-title").html(curPage.capitalizeFirstLetter());
-  mf();
-  return false;
+var pwl = function pageWrapperLoader() {
+    jQuery('#page-wrapper').load('/pages/'+ curPage +'.html','#page-wrapper');
+    document.title = siteName + " - " + curPage.capitalizeFirstLetter();
+    jQuery("#page-title").html(curPage.capitalizeFirstLetter());
+    return false;
+}
+
+var customFunc = function customFunction() {
+    mf();
+    //for LESHA
 }
 
 function ready() {
@@ -52,8 +56,9 @@ function ready() {
     }
     console.log(curPage);
     document.title = document.title.replace("{%Site}", curPage.capitalizeFirstLetter() );
-    jQuery("#site-title").html(siteName);			
+    jQuery("#site-title").html(siteName);
     pwl();
+    customFunc();
 }
 
 document.addEventListener("DOMContentLoaded", ready);
