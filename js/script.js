@@ -44,9 +44,18 @@ var pwl = function pageWrapperLoader() {
 var customFunc = function customFunction() {
     mf();
     //for LESHA
-    pgSw();
-    frSw();
+    dcRdy();
     switchVs();
+
+    jQuery(document).on('click','#profileToggle', function(){
+        jQuery(this).find('.btn').toggleClass('active');
+
+        if (jQuery(this).find('.btn-primary').size()>0) {
+            switchVs("parentInfo", "personalInfo");
+            jQuery(this).find('.btn').toggleClass('btn-primary');
+        }
+        jQuery(this).find('.btn').toggleClass('btn-default');
+    });
 }
 
 function ready() {
@@ -161,7 +170,7 @@ clear = function clearVacInputs() {
 
 // -----------------------------------Lesha---------------------------------------
 
- var switchVs=function switchVisible(firstBlock, secondBlock) {
+ switchVs=function switchVisible(firstBlock, secondBlock) {
     if (document.getElementById(firstBlock)) {
         if (document.getElementById(firstBlock).style.display == 'none') {
             document.getElementById(firstBlock).style.display = 'block';
@@ -174,24 +183,11 @@ clear = function clearVacInputs() {
     }
 }
 
-var frSw = function formsSwitcher() {
-jQuery('#profileToggle').click(function() {
-    jQuery(this).find('.btn').toggleClass('active');  
-
-    if (jQuery(this).find('.btn-primary').size()>0) {
-        switchVisible("parentInfo", "personalInfo");
-        jQuery(this).find('.btn').toggleClass('btn-primary');
-    }
-    jQuery(this).find('.btn').toggleClass('btn-default');    
-});
-}
-
-var pgSw = function pageSwitcher() {
-var dcRdy = function dcRdy() { 
+dcRdy = function dcRdy() {
     pageSize = 1;
     pagesCount = jQuery(".content").length;
     var currentPage = 1;
-    
+
     /////////// PREPARE NAV ///////////////
     var nav = '';
     var totalPages = Math.ceil(pagesCount / pageSize);
@@ -231,4 +227,6 @@ var dcRdy = function dcRdy() {
         showPage();
     });
 }
-}
+
+dcRdy();
+switchVs();
