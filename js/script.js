@@ -44,6 +44,9 @@ var pwl = function pageWrapperLoader() {
 var customFunc = function customFunction() {
     mf();
     //for LESHA
+    pgSw();
+    frSw();
+    switchVs();
 }
 
 function ready() {
@@ -99,7 +102,7 @@ chw = function chooseHeightWeight() {
 }
 
 sethw = function setHeightWeight() {
-    $(document).ready(function() {
+    jQuery(document).ready(function() {
         jQuery('#height_input').keydown(function(e) {
             if (e.keyCode === 13) {
                 jQuery('#height_input').hide();
@@ -108,7 +111,7 @@ sethw = function setHeightWeight() {
         });
     });
 
-    $(document).ready(function() {
+    jQuery(document).ready(function() {
         jQuery('#weight_input').keydown(function(e) {
             if (e.keyCode === 13) {
                 jQuery('#weight_input').hide();
@@ -121,7 +124,7 @@ sethw = function setHeightWeight() {
 sdii = function setDataInInputs() {
     jQuery('#table_med tr').click(function() {
         jQuery('#cancel_vac').show();
-        $(this).find('td').each(function() {
+        jQuery(this).find('td').each(function() {
             var value = jQuery(this).html();
             var type = jQuery(this).attr('type');
 
@@ -133,7 +136,7 @@ sdii = function setDataInInputs() {
 }
 
 gd = function getDataFromImputs() {
-    $("#submit_vaccination_info").click(function() {
+    jQuery("#submit_vaccination_info").click(function() {
         var type = jQuery("#select_type_vaccination :selected").val(); //val
         var reason = jQuery("#select_reason_vaccination :selected").text();
         var date = jQuery("#date_vac").val();
@@ -142,15 +145,90 @@ gd = function getDataFromImputs() {
         clear();
         return false;
     });
-    $("#cancel_vac").click(function() {
+    jQuery("#cancel_vac").click(function() {
         jQuery('#cancel_vac').hide();
         clear();
     });
 }
 
 clear = function clearVacInputs() {
-    $("#select_type_vaccination :first").prop("selected", true);
-    $("#select_reason_vaccination :first").prop("selected", true);
+    jQuery("#select_type_vaccination :first").prop("selected", true);
+    jQuery("#select_reason_vaccination :first").prop("selected", true);
     jQuery("#date_vac").val('');
     jQuery("#term_vac").val('');
+}
+
+
+// -----------------------------------Lesha---------------------------------------
+
+ var switchVs=function switchVisible(firstBlock, secondBlock) {
+    if (document.getElementById(firstBlock)) {
+        if (document.getElementById(firstBlock).style.display == 'none') {
+            document.getElementById(firstBlock).style.display = 'block';
+            document.getElementById(secondBlock).style.display = 'none';
+        }
+        else {
+            document.getElementById(firstBlock).style.display = 'none';
+            document.getElementById(secondBlock).style.display = 'block';
+        }
+    }
+}
+
+var frSw = function formsSwitcher() {
+jQuery('#profileToggle').click(function() {
+    jQuery(this).find('.btn').toggleClass('active');  
+
+    if (jQuery(this).find('.btn-primary').size()>0) {
+        switchVisible("parentInfo", "personalInfo");
+        jQuery(this).find('.btn').toggleClass('btn-primary');
+    }
+    jQuery(this).find('.btn').toggleClass('btn-default');    
+});
+}
+
+var pgSw = function pageSwitcher() {
+var dcRdy = function dcRdy() { 
+    pageSize = 1;
+    pagesCount = jQuery(".content").length;
+    var currentPage = 1;
+    
+    /////////// PREPARE NAV ///////////////
+    var nav = '';
+    var totalPages = Math.ceil(pagesCount / pageSize);
+    for (var s=0; s<totalPages; s++){
+        nav += '<li class="numeros"><a href="#">'+(s+1)+'</a></li>';
+    }
+    jQuery(".pag_prev").after(nav);
+    jQuery(".numeros").first().addClass("active");
+    //////////////////////////////////////
+
+    showPage = function() {
+        jQuery(".content").hide().each(function(n) {
+            if (n >= pageSize * (currentPage - 1) && n < pageSize * currentPage)
+                jQuery(this).show();
+        });
+    }
+    showPage();
+
+    jQuery(".pagination li.numeros").click(function() {
+        jQuery(".pagination li").removeClass("active");
+        jQuery(this).addClass("active");
+        currentPage = parseInt($(this).text());
+        showPage();
+    });
+
+    jQuery(".pagination li.pag_prev").click(function() {
+        if(jQuery(this).next().is('.active')) return;
+        jQuery('.numeros.active').removeClass('active').prev().addClass('active');
+        currentPage = currentPage > 1 ? (currentPage-1) : 1;
+        showPage();
+    });
+
+    jQuery(".pagination li.pag_next").click(function() {
+        if(jQuery(this).prev().is('.active')) return;
+        jQuery('.numeros.active').removeClass('active').next().addClass('active');
+        currentPage = currentPage < totalPages ? (currentPage+1) : totalPages;
+        showPage();
+    });
+}
 }
