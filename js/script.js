@@ -44,9 +44,7 @@ var pwl = function pageWrapperLoader() {
 var customFunc = function customFunction() {
     mf();
     //for LESHA
-    dcRdy();
     switchVs();
-
     jQuery(document).on('click','#profileToggle', function(){
         jQuery(this).find('.btn').toggleClass('active');
 
@@ -63,6 +61,7 @@ function ready() {
 
     if( !(document.location.hash === undefined || document.location.hash === "")) {
     	curPage = document.location.hash.substr(1);
+
     } else {
         document.location.hash = curPage = "home";
     }
@@ -171,6 +170,7 @@ clear = function clearVacInputs() {
 // -----------------------------------Lesha---------------------------------------
 
  switchVs=function switchVisible(firstBlock, secondBlock) {
+     dcRdy();
     if (document.getElementById(firstBlock)) {
         if (document.getElementById(firstBlock).style.display == 'none') {
             document.getElementById(firstBlock).style.display = 'block';
@@ -183,7 +183,7 @@ clear = function clearVacInputs() {
     }
 }
 
-dcRdy = function dcRdy() {
+dcRdy = function dcReady() {
     pageSize = 1;
     pagesCount = jQuery(".content").length;
     var currentPage = 1;
@@ -227,6 +227,3 @@ dcRdy = function dcRdy() {
         showPage();
     });
 }
-
-dcRdy();
-switchVs();
