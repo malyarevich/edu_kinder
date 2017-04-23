@@ -1,3 +1,74 @@
+<script>
+
+function switchVisible(firstBlock, secondBlock) {
+	if (document.getElementById(firstBlock)) {
+		if (document.getElementById(firstBlock).style.display == 'none') {
+			document.getElementById(firstBlock).style.display = 'block';
+			document.getElementById(secondBlock).style.display = 'none';
+		}
+		else {
+			document.getElementById(firstBlock).style.display = 'none';
+			document.getElementById(secondBlock).style.display = 'block';
+		}
+	}
+}
+
+$('#profileToggle').click(function() {
+	$(this).find('.btn').toggleClass('active');  
+
+	if ($(this).find('.btn-primary').size()>0) {
+		switchVisible("parentInfo", "personalInfo");
+		$(this).find('.btn').toggleClass('btn-primary');
+	}
+	$(this).find('.btn').toggleClass('btn-default');    
+});
+
+$( document ).ready(function() { 
+    pageSize = 1;
+    pagesCount = $(".content").length;
+    var currentPage = 1;
+    
+    /////////// PREPARE NAV ///////////////
+    var nav = '';
+    var totalPages = Math.ceil(pagesCount / pageSize);
+    for (var s=0; s<totalPages; s++){
+        nav += '<li class="numeros"><a href="#">'+(s+1)+'</a></li>';
+    }
+    $(".pag_prev").after(nav);
+    $(".numeros").first().addClass("active");
+    //////////////////////////////////////
+
+    showPage = function() {
+        $(".content").hide().each(function(n) {
+            if (n >= pageSize * (currentPage - 1) && n < pageSize * currentPage)
+                $(this).show();
+        });
+    }
+    showPage();
+
+
+    $(".pagination li.numeros").click(function() {
+        $(".pagination li").removeClass("active");
+        $(this).addClass("active");
+        currentPage = parseInt($(this).text());
+        showPage();
+    });
+
+    $(".pagination li.pag_prev").click(function() {
+        if($(this).next().is('.active')) return;
+        $('.numeros.active').removeClass('active').prev().addClass('active');
+        currentPage = currentPage > 1 ? (currentPage-1) : 1;
+        showPage();
+    });
+
+    $(".pagination li.pag_next").click(function() {
+        if($(this).prev().is('.active')) return;
+        $('.numeros.active').removeClass('active').next().addClass('active');
+        currentPage = currentPage < totalPages ? (currentPage+1) : totalPages;
+        showPage();
+    });
+});
+</script>
 <div class="well well-lg">
 	<div class="container-fluid">
 		<div class="row">
@@ -16,45 +87,126 @@
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Edit information</h4>
+							<h4 class="modal-title">Edit information </h4>
 						</div>
 						<div class="modal-body">
-							<div class="form-group">
-								<label>Name</label>
-								<input class="form-control" placeholder="Vasiliy">
+							<div class="col-md-12 text-center">
+								<div id="profileToggle" class="btn-group btn-toggle"> 
+									<button class="btn btn-primary active ">Personal Info</button>
+									<button class="btn btn-default">&nbsp Parent Info &nbsp</button>
+								</div>
 							</div>
-							<div class="form-group">
-								<label>Surname</label>
-								<input class="form-control" placeholder="Nikonov">
+							<div id="personalInfo">
+								<div class="form-group">
+									<label>Name</label>
+									<input class="form-control" id="kidName" placeholder="Vasiliy">
+								</div>
+								<div class="form-group">
+									<label>Middlename</label>
+									<input class="form-control" id="kidMidName" placeholder="Gavrilovich">
+								</div>
+								<div class="form-group">
+									<label>Surname</label>
+									<input class="form-control" id="kidSurname" placeholder="Nikonov">
+								</div>
+								<div class="form-group">
+									<label>Home address</label>
+									<input class="form-control" id="kidAddress" placeholder="Evergreen terrace 742">
+								</div>
 							</div>
-							<div class="form-group">
-								<label>Address</label>
-								<input class="form-control" placeholder="Evergreen terrace 742">
+							<div id="parentInfo" style="display:none;">
+								<div class="row" style="margin-top:40px;">
+									<div class="col-md-12">
+									<div class="content">
+										<div class="form-group">
+											<label>Mum`s name</label>
+											<input class="form-control" id="relativeName" placeholder="Vasiliy">
+										</div>
+										<div class="form-group">
+											<label>Mum`s middlename</label>
+											<input class="form-control" id="relativeMdlName" placeholder="Gavrilovich">
+										</div>
+										<div class="form-group">
+											<label>Mum`s surname</label>
+											<input class="form-control" id="relativeSurname" placeholder="Nikonov">
+										</div>
+										<div class="form-group">
+											<label>Mum`s address</label>
+											<input class="form-control" id="relativeAddress" placeholder="Evergreen terrace 742">
+										</div>
+										<div class="form-group">
+											<label>Mum`s telephone number</label>
+											<input class="form-control" id="relativeCell" placeholder="+380504547823">
+										</div>
+										<div class="form-group">
+											<label>Mum`s work address</label>
+											<input class="form-control" id="relativeWorkAddress" placeholder="Evergreen terrace 742">
+										</div>
+										<div class="form-group">
+											<label>Mum`s work position</label>
+											<input class="form-control" id="relativeWorkPosition" placeholder="Boss">
+										</div>
+										<div class="form-group">
+											<label>Mum`s work telephone</label>
+											<input class="form-control" id="relativeWorkCell"  placeholder="+380504547823'">
+										</div>
+									</div>	
+									<div class="content">
+										<div class="form-group">
+											<label>Father`s name</label>
+											<input class="form-control" id="relativeName" placeholder="Vasiliy">
+										</div>
+										<div class="form-group">
+											<label>Father`s middlename</label>
+											<input class="form-control" id="relativeMdlName" placeholder="Gavrilovich">
+										</div>
+										<div class="form-group">
+											<label>Father`s surname</label>
+											<input class="form-control" id="relativeSurname" placeholder="Nikonov">
+										</div>
+										<div class="form-group">
+											<label>Father`s address</label>
+											<input class="form-control" id="relativeAddress" placeholder="Evergreen terrace 742">
+										</div>
+										<div class="form-group">
+											<label>Father`s telephone number</label>
+											<input class="form-control" id="relativeCell" placeholder="+380504547823">
+										</div>
+										<div class="form-group">
+											<label>Father`s work address</label>
+											<input class="form-control" id="relativeWorkAddress" placeholder="Evergreen terrace 742">
+										</div>
+										<div class="form-group">
+											<label>Father`s work position</label>
+											<input class="form-control" id="relativeWorkPosition" placeholder="Boss">
+										</div>
+										<div class="form-group">
+											<label>Father`s work telephone</label>
+											<input class="form-control" id="relativeWorkCell"  placeholder="+380504547823'">
+										</div>
+									</div>
+									</div>
+	<div class="col-md-12">
+									<nav class="text-center">
+    <ul class="pagination">
+        <li class="pag_prev">
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="pag_next">
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+									</div>
+								</div>
 							</div>
-
-							<div class="form-group">
-								<label>Mum`s working place</label>
-								<input class="form-control" placeholder="Economist in 'Triumf+'">
-							</div>
-
-							<div class="form-group">
-								<label>Mum`s telephone number</label>
-								<input class="form-control" placeholder="+380504547823">
-							</div>
-
-							<div class="form-group">
-								<label>Father`s working place</label>
-								<input class="form-control" placeholder="Deputy of foreman of 'ZAZ'">
-							</div>
-
-							<div class="form-group">
-								<label>Father`s telephone number</label>
-								<input class="form-control" placeholder="+380504840698">
-							</div>
-
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+							<button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">Save changes</button>
 						</div>
 					</div>
 
