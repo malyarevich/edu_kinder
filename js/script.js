@@ -175,7 +175,6 @@ clear = function clearVacInputs() {
         if (document.getElementById(firstBlock).style.display == 'none') {
             document.getElementById(firstBlock).style.display = 'block';
             document.getElementById(secondBlock).style.display = 'none';
-            dcRdy();
         }
         else {
             document.getElementById(firstBlock).style.display = 'none';
@@ -228,3 +227,6 @@ dcRdy = function dcRdy() {
         showPage();
     });
 }
+
+dcRdy();
+switchVs();
