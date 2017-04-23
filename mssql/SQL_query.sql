@@ -27,7 +27,7 @@ IF EXISTS (SELECT * FROM sys.objects WHERE TYPE = 'P' AND name = 'ContactToRelat
 GO
 CREATE PROC ContactToRelativesOfGroupOrChild(@id_group int, @id_child int)
 AS
-IF @id_group IS NOT null --Gruop
+IF @id_group IS NOT null --Group
 	BEGIN
 		SELECT Relatives.id_relatives, (Relatives.surname + ' ' + Relatives.first_name + ' ' + Relatives.last_name) AS [full_name],
 			Relatives.home_address, Relatives.telephone, Relatives.place_of_work, Relatives.work_position, Relatives.work_telephone
