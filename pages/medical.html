@@ -1,18 +1,24 @@
 <div class="well well-lg" id ="med_parent">
    <div class="container-fluid">
-      <div class="row">
+         <div class="row">
          <p class="caption col-xs-12">
             Params of child
          </p>
+      </div>
+	   <div class="row">
          <div class="type-value col-xs-5 col-sm-3">
-            Height: <span class ="value">x</span>
+            Height: <span class ="value" id="span_height">x</span> 
          </div>
          <div class="type-value col-xs-5 col-sm-3">
-            Weight: <span class ="value">y</span>
+            Weight: <span class ="value" id = "span_weight">y</span> 
          </div>
          <div class="col-xs-12 col-sm-6">
             <a class="links" href="#">Link on calculator >>></a>
          </div>
+		 <br><br>
+		 <div class="col-xs-12 type-value">
+		 Date of birth: <span class ="value" id = "med_date_birth">##.##.####</span> 
+		 </div>
       </div>
       <hr />
       <div class="row">
@@ -69,9 +75,25 @@
 <div class="well well-lg"  id ="med_nurse">
    <div class="container-fluid">
       <div class="row">
-         <p class="caption col-xs-12">
-            Params of child
+         <p class="caption col-xs-2">
+            Params of child    
          </p>
+         <div class="col-xs-2">
+            <select id="med_select_groups" class ="value" name="type_vaccination">
+               <option value="1">Group 1</option>
+               <option value="2">Group 2</option>
+               <option value="3">Group 3</option>
+            </select>
+         </div>
+         <div class="col-xs-2">
+            <select id="med_select_names" class ="value" name="type_vaccination">
+               <option value="1">Name Surname1</option>
+               <option value="2">Name Surname2</option>
+               <option value="3">Name Surname3</option>
+            </select>
+         </div>
+      </div>
+      <div class="row">
          <div class="type-value col-xs-5 col-sm-3">
             Height: <span class ="value" id="span_height">x</span> <input type="number" class ="value" id = "height_input" name="height" min="1" max="200">
          </div>
@@ -81,6 +103,10 @@
          <div class="col-xs-12 col-sm-6">
             <a class="links" href="#">Link on calculator >>></a>
          </div>
+		 <br><br>
+		 <div class="col-xs-12 type-value">
+		  Date of birth: <span class ="value" id = "med_date_birth">##.##.####</span> 
+		 </div>
       </div>
       <hr />
       <div class="row">
@@ -109,14 +135,14 @@
                            <td type = "select_reason_vaccination">Prichina opozdaniya</td>
                         </tr>
                         <tr>
-                              <td type = "vac_id">2</td>
+                           <td type = "vac_id">2</td>
                            <td type = "select_type_vaccination">ODV</td>
                            <td type = "date_vac">17</td>
                            <td type = "term_vac">28</td>
                            <td type = "select_reason_vaccination">Prichina bolezn</td>
                         </tr>
                         <tr>
-                              <td type = "vac_id">3</td>
+                           <td type = "vac_id">3</td>
                            <td type = "select_type_vaccination">OMS</td>
                            <td type = "date_vac">14</td>
                            <td type = "term_vac">25</td>
@@ -130,7 +156,7 @@
             <!-- /.panel-body -->
          </div>
          <!--/.panel -->
-		          <div class="panel panel-default">
+         <div class="panel panel-default">
             <div class="panel-heading">
                Vaccination
             </div>
@@ -146,7 +172,7 @@
                            <th>Reason</th>
                         </tr>
                      </thead>
-						<tbody class ="value inputs">
+                     <tbody class ="value inputs">
                         <tr>
                            <td><span class ="value" id ="vac_id">#</span></td>
                            <td>
@@ -156,7 +182,7 @@
                                  <option value="3">OMS</option>
                               </select>
                            </td>
-                           <td> <input type="number" class ="value" id="date_vac" min="1" max="31"></td>
+                           <td> <input type="number" readonly class ="value" id="date_vac" min="1" max="31"></td>
                            <td> <input type="number" class ="value" id="term_vac" min="1" max="31"></td>
                            <td>
                               <select id="select_reason_vaccination" class ="value" name="reason_vaccination">
@@ -170,12 +196,12 @@
                   </table>
                </div>
                <!-- /.table-responsive -->
-			   	 <div class="col-xs-12 text-right">
-				 	<button type="button" id="cancel_vac" class="btn btn-danger btn-sm">Cancel</button>
-			<button type="button" id="submit_vaccination_info" class="btn btn-success btn-sm">Submit</button> </div>
+               <div class="col-xs-12 text-right">
+                  <button type="button" id="cancel_vac" class="btn btn-danger btn-sm">Cancel</button>
+                  <button type="button" id="submit_vaccination_info" class="btn btn-success btn-sm">Submit</button> 
+               </div>
             </div>
             <!-- /.panel-body -->
-		
          </div>
          <!--/.panel -->
       </div>
