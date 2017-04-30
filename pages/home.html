@@ -19,6 +19,7 @@
 							<h4 class="modal-title">Edit information </h4>
 						</div>
 						<div class="modal-body">
+						<form>
 							<div class="col-md-12 text-center">
 								<div id="profileToggle" class="btn-group btn-toggle"> 
 									<button class="btn btn-primary active ">Personal Info</button>
@@ -28,36 +29,36 @@
 							<div id="personalInfo">
 								<div class="form-group">
 									<label>Name</label>
-									<input class="form-control" id="kidName" placeholder="Vasiliy">
+									<input class="form-control" id="kidName" pattern="[A-Za-z]{1,32}" placeholder="Vasiliy" required class="form-control">
 								</div>
 								<div class="form-group">
 									<label>Middlename</label>
-									<input class="form-control" id="kidMidName" placeholder="Gavrilovich">
+									<input class="form-control" id="kidMidName" pattern="[A-Za-z]{1,32}" placeholder="Gavrilovich" required class="form-control"> 
 								</div>
 								<div class="form-group">
 									<label>Surname</label>
-									<input class="form-control" id="kidSurname" placeholder="Nikonov">
+									<input class="form-control" id="kidSurname" pattern="[A-Za-z]{1,32}" placeholder="Nikonov" required class="form-control">
 								</div>
 								<div class="form-group">
 									<label>Home address</label>
-									<input class="form-control" id="kidAddress" placeholder="Evergreen terrace 742">
+									<input class="form-control" id="kidAddress" placeholder="Evergreen terrace 742" required class="form-control">
 								</div>
 							</div>
 							<div id="parentInfo" style="display:none;">
-								<div class="row" style="margin-top:40px;">
+								<div class="row">
 									<div class="col-md-12">
 									<div class="content">
 										<div class="form-group">
 											<label>Mum`s name</label>
-											<input class="form-control" id="relativeName" placeholder="Vasiliy">
+											<input class="form-control" id="relativeName" pattern="[A-Za-z]{1,32}" placeholder="Vasiliy">
 										</div>
 										<div class="form-group">
 											<label>Mum`s middlename</label>
-											<input class="form-control" id="relativeMdlName" placeholder="Gavrilovich">
+											<input class="form-control" id="relativeMdlName" pattern="[A-Za-z]{1,32}" placeholder="Gavrilovich">
 										</div>
 										<div class="form-group">
 											<label>Mum`s surname</label>
-											<input class="form-control" id="relativeSurname" placeholder="Nikonov">
+											<input class="form-control" id="relativeSurname" pattern="[A-Za-z]{1,32}" placeholder="Nikonov">
 										</div>
 										<div class="form-group">
 											<label>Mum`s address</label>
@@ -65,7 +66,7 @@
 										</div>
 										<div class="form-group">
 											<label>Mum`s telephone number</label>
-											<input class="form-control" id="relativeCell" placeholder="+380504547823">
+											<input class="form-control" type="tel" pattern="(\+?\d[- .]*){7,13}" id="relativeCell" placeholder="+380504547823">
 										</div>
 										<div class="form-group">
 											<label>Mum`s work address</label>
@@ -73,25 +74,25 @@
 										</div>
 										<div class="form-group">
 											<label>Mum`s work position</label>
-											<input class="form-control" id="relativeWorkPosition" placeholder="Boss">
+											<input class="form-control" pattern="[A-Za-z]{1,32}" id="relativeWorkPosition" placeholder="Boss">
 										</div>
 										<div class="form-group">
 											<label>Mum`s work telephone</label>
-											<input class="form-control" id="relativeWorkCell"  placeholder="+380504547823'">
+											<input class="form-control" id="relativeWorkCell" type="tel" pattern="(\+?\d[- .]*){7,13}" placeholder="+380504547823">
 										</div>
 									</div>	
 									<div class="content">
 										<div class="form-group">
 											<label>Father`s name</label>
-											<input class="form-control" id="relativeName" placeholder="Vasiliy">
+											<input class="form-control" pattern="[A-Za-z]{1,32}" id="relativeName" placeholder="Vasiliy">
 										</div>
 										<div class="form-group">
 											<label>Father`s middlename</label>
-											<input class="form-control" id="relativeMdlName" placeholder="Gavrilovich">
+											<input class="form-control" pattern="[A-Za-z]{1,32}" id="relativeMdlName" placeholder="Gavrilovich">
 										</div>
 										<div class="form-group">
 											<label>Father`s surname</label>
-											<input class="form-control" id="relativeSurname" placeholder="Nikonov">
+											<input class="form-control" pattern="[A-Za-z]{1,32}" id="relativeSurname" placeholder="Nikonov">
 										</div>
 										<div class="form-group">
 											<label>Father`s address</label>
@@ -99,19 +100,19 @@
 										</div>
 										<div class="form-group">
 											<label>Father`s telephone number</label>
-											<input class="form-control" id="relativeCell" placeholder="+380504547823">
+											<input class="form-control" type="tel" pattern="(\+?\d[- .]*){7,13}" id="relativeCell" placeholder="+380504547823">
 										</div>
 										<div class="form-group">
 											<label>Father`s work address</label>
-											<input class="form-control" id="relativeWorkAddress" placeholder="Evergreen terrace 742">
+											<input class="form-control"  id="relativeWorkAddress" placeholder="Evergreen terrace 742">
 										</div>
 										<div class="form-group">
 											<label>Father`s work position</label>
-											<input class="form-control" id="relativeWorkPosition" placeholder="Boss">
+											<input class="form-control" pattern="[A-Za-z]{1,32}" id="relativeWorkPosition" placeholder="Boss">
 										</div>
 										<div class="form-group">
 											<label>Father`s work telephone</label>
-											<input class="form-control" id="relativeWorkCell"  placeholder="+380504547823'">
+											<input class="form-control" pattern="(\+?\d[- .]*){7,13}" id="relativeWorkCell"  placeholder="+380504547823">
 										</div>
 									</div>
 									</div>
@@ -133,13 +134,15 @@
 									</div>
 								</div>
 							</div>
+							<div class="modal-footer">
+							<button type="submit" class="btn btn-primary btn-lg btn-block">Save changes</button>
 						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">Save changes</button>
+						</form>
 						</div>
+						
 					</div>
-
 				</div>
+
 			</div>
 			<!-- </div> -->
 			
