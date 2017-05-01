@@ -17,15 +17,15 @@ GO
 --ALTER ROLE PositionMethodist ADD MEMBER userMeth2
 GO
 GRANT EXECUTE ON OBJECT::dbo.PersDataOfSelectGroup
-    TO PositionMethodist;
+TO PositionMethodist;
 GRANT EXECUTE ON OBJECT::dbo.GroupMembers
-    TO PositionMethodist;
+TO PositionMethodist;
 GRANT EXECUTE ON OBJECT::dbo.TimetableForGroupChildOrTeacher
-    TO PositionMethodist;
+TO PositionMethodist;
 GRANT EXECUTE ON OBJECT::dbo.SectionOfMembers
-    TO PositionMethodist;
+TO PositionMethodist;
 GRANT EXECUTE ON OBJECT::dbo.ContactToRelativesOfGroupOrChild
-    TO PositionMethodist;
+TO PositionMethodist;
 GRANT UPDATE ON OBJECT::dbo.Child TO PositionMethodist;
 GO
 GO
@@ -39,15 +39,15 @@ GO
 --ALTER ROLE PositionMethodist ADD MEMBER userEmp2
 GO
 GRANT EXECUTE ON OBJECT::dbo.PersDataOfSelectGroup
-    TO PositionEmployee;
+TO PositionEmployee;
 GRANT EXECUTE ON OBJECT::dbo.GroupMembers
-    TO PositionEmployee;
+TO PositionEmployee;
 GRANT EXECUTE ON OBJECT::dbo.TimetableForGroupChildOrTeacher
-    TO PositionEmployee;
+TO PositionEmployee;
 GRANT EXECUTE ON OBJECT::dbo.SectionOfMembers
-    TO PositionEmployee;
+TO PositionEmployee;
 GRANT EXECUTE ON OBJECT::dbo.ContactToRelativesOfGroupOrChild
-    TO PositionEmployee;
+TO PositionEmployee;
 GO
 -------------------Role Revative
 USE Kinder_garden
@@ -59,17 +59,17 @@ GO
 --ALTER ROLE PositionMethodist ADD MEMBER userRel2
 GO
 GRANT EXECUTE ON OBJECT::dbo.PersDataOfSelectGroup
-    TO PositionRelative;
+TO PositionRelative;
 GRANT EXECUTE ON OBJECT::dbo.GroupMembers
-    TO PositionRelative;
+TO PositionRelative;
 GRANT EXECUTE ON OBJECT::dbo.BiomDataOfChildInDate
-    TO PositionRelative;
+TO PositionRelative;
 GRANT EXECUTE ON OBJECT::dbo.PersWithChildOrGroupDate
-    TO PositionRelative;
+TO PositionRelative;
 GRANT EXECUTE ON OBJECT::dbo.VaccinOfChildOfChild
-    TO PositionRelative;
+TO PositionRelative;
 GRANT EXECUTE ON OBJECT::dbo.VaccinOfChildOfChildInNearTime
-    TO PositionRelative;
+TO PositionRelative;
 GO 
 GO
 
@@ -91,3 +91,68 @@ GO
 
 ALTER ROLE [SupportRole] ADD MEMBER [NightsAndWeekendsPeeps]
 GO
+
+Use Kinder_garden
+drop role AdminS
+GO
+
+Use Kinder_garden
+create role AdminS
+Go
+
+	Use Kinder_garden
+
+	GRANT all PRIVILEGES  to AdminS WITH GRANT OPTION
+	go
+
+	grant select, insert, delete, update on [dbo].[Rations] to AdminS
+		grant select, insert, delete, update on [dbo].[Type_groups] to AdminS
+			grant select, insert, delete, update on [dbo].[Groups] to AdminS
+				grant select, insert, delete, update on [dbo].[Relatives] to AdminS
+					grant select, insert, delete, update on [dbo].[List_of_relatives_type]  to AdminS
+						grant select, insert, delete, update on [dbo].[Relatives_type] to AdminS
+							grant select, insert, delete, update on [dbo].[Child] to AdminS
+								grant select, insert, delete, update on [dbo].[Medical_card] to AdminS
+									grant select, insert, delete, update on [dbo].[Type_of_sick_leaves] to AdminS
+										grant select, insert, delete, update on [dbo].[Sick_leaves] to AdminS
+											grant select, insert, delete, update on [dbo].[Vaccination_reasons] to AdminS
+												grant select, insert, delete, update on [dbo].[Type_of_vaccination] to AdminS
+													grant select, insert, delete, update on [dbo].[Vaccination] to AdminS
+														grant select, insert, delete, update on [dbo].[Height_Weight] to AdminS
+															grant select, insert, delete, update on [dbo].[Sections] to AdminS
+																grant select, insert, delete, update on [dbo].[List_of_section] to AdminS
+																	grant select, insert, delete, update on [dbo].[Type_of_passage] to AdminS
+																		grant select, insert, delete, update on [dbo].[Medical_Journal] to AdminS
+																			grant select, insert, delete, update on [dbo].[Employee] to AdminS
+																				grant select, insert, delete, update on [dbo].[Department] to AdminS
+																					grant select, insert, delete, update on [dbo].[Type_of_position] to AdminS
+																						grant select, insert, delete, update on [dbo].[Appointment] to AdminS
+																							grant select, insert, delete, update on [dbo].[Teacher_of_section] to AdminS
+																								grant select, insert, delete, update on [dbo].[Visits_Journal] to AdminS
+
+
+
+
+																						grant execute on [PersDataOfSelectGroup] to AdminS
+																							grant execute on [ContactToRelativesOfGroupOrChild] to AdminS
+																								grant execute on [GroupMembers] to AdminS
+																									grant execute on [PersWithChildOrGroupDate] to AdminS
+																										grant execute on [BiomDataOfChildInDate] to AdminS
+																											grant execute on [VaccinOfChild] to AdminS
+																												grant execute on [VaccinOfChildInNearTime] to AdminS
+																													grant execute on [SectionOfMembers] to AdminS
+																														grant execute on [TimetableForGroupChildOrTeacher] to AdminS
+																															grant execute on [VisitJournalTableCost] to AdminS
+																																grant execute on [PayChildGroupGardenOfDate] to AdminS
+
+																																	exec  sp_droplogin 'admins'
+																																	exec  sp_addlogin 'admins','password_123',[Kinder_garden]
+																																	GO
+
+																																	exec  sp_dropuser  'AD1'
+																																	exec sp_adduser 'admins', 'AD1'
+																																	GO
+
+																																	exec  sp_droprolemember 'AdminS','AD1'
+																																	exec  sp_addrolemember 'AdminS','AD1'
+																																	GO
