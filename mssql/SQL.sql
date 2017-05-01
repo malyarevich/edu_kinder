@@ -4,6 +4,8 @@ BEGIN
 DROP DATABASE Kinder_garden
 END
 
+
+USE master
 CREATE DATABASE Kinder_garden;
 GO 
 USE Kinder_garden;
