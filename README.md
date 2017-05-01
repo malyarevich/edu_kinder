@@ -2,6 +2,9 @@
 
 [Kinder Surprise](http://startbootstrap.com/template-overviews/sb-admin-2/) is an open educational project.
 
+[GitHub site](http://malyarevich.github.io/)
+
+
 
 
 ## Bugs and Issues
