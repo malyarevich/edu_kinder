@@ -2,6 +2,9 @@ var express = require('express');
 var path = require('path');
 var app = express();
 
+const port = 2101;
+require('./routes')(app, {});
+
 /** Sever configs */
 app.set('views', path.join(__dirname, 'public/views'));
 app.set('view engine', 'jade');
@@ -9,18 +12,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /** Sever content */
 var sql = require("seriate");
-/*
+
 
 // Change the config settings to match your
 // SQL Server and database
 var config = {
     "server": "127.0.0.1",
-    "user": "admins",
-    "password": "password_123",
+    "user": "kinder",
+    "password": "123",
     "database": "Kinder_garden"
 };
-app.use(function(req, res) {
-    sql.setDefaultConfig(config);
+
+app.use(function(req, res, next) {
+    /*sql.setDefaultConfig(config);
     console.log(req);
     sql.execute({
         query: "SELECT * FROM CHILD"
@@ -32,9 +36,10 @@ app.use(function(req, res) {
         console.log(results);
     }, function (err) {
         console.log("Execute error: ", err);
-    });
+    });*/
+    next();
 });
-*/
+
 app.get('/login', function(req, res) {
     res.sendFile(path.join(__dirname+'/public/login.html'));
 });
@@ -67,6 +72,6 @@ app.use(function(err, req, res, next) {
 });
 
 /** Listener */
-app.listen(2101, function () {
+app.listen(port, function () {
     console.log('Example app listening on port 2101!');
 });
