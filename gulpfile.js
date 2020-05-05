@@ -7,15 +7,15 @@ var sourcemaps = require('gulp-sourcemaps');
 
  // External sourcemaps 
 gulp.task('css', function () {
-  return gulp.src('./public/stylus/main.styl')
+  return gulp.src('./docs/stylus/main.styl')
     .pipe(sourcemaps.init())
     .pipe(stylus())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./public/css/'));
+    .pipe(gulp.dest('./docs/css/'));
 });
 
 gulp.task('all:watch', function () {
-    gulp.watch('./public/stylus/**/*.styl', ['css']);
+    gulp.watch('./docs/stylus/**/*.styl', ['css']);
 });
 
 gulp.task('default', [ 'css', 'all:watch' ]);

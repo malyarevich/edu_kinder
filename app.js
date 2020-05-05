@@ -6,9 +6,9 @@ const port = 2101;
 require('./routes')(app, {});
 
 /** Sever configs */
-app.set('views', path.join(__dirname, 'public/views'));
+app.set('views', path.join(__dirname, 'docs/views'));
 app.set('view engine', 'jade');
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 
 /** Sever content */
 var sql = require("seriate");
@@ -41,15 +41,15 @@ app.use(function(req, res, next) {
 });
 
 app.get('/login', function(req, res) {
-    res.sendFile(path.join(__dirname+'/public/login.html'));
+    res.sendFile(path.join(__dirname+'/docs/login.html'));
 });
 
 app.get('/index', function(req, res) {
-    res.sendFile(path.join(__dirname+'/public/index.html#home'));
+    res.sendFile(path.join(__dirname+'/docs/index.html#home'));
 });
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname+'/public/index.html#home'));
+    res.sendFile(path.join(__dirname+'/docs/index.html#home'));
 });
 
 /** Error sector */
