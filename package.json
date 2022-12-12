@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "gulp": "^4.0.2",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-stylus": "^2.6.0",
